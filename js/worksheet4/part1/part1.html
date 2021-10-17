@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+  attribute vec4 vPosition;
+  attribute vec4 vColor;
+  attribute vec4 vNormal;
+  varying vec4 color;
+  uniform vec3 theta;
+  uniform mat4 modelLocation;
+  uniform mat4 projection;
+  uniform mat4 modelView;
+  uniform mat3 normalMatrix;
+  void main(){
+
+    color = vColor;
+    //gl_Position = projection * modelView * modelLocation * vPosition;
+        gl_Position = modelView * vPosition * projection;
+
+
+  }
+</script>
+<script id="fragment-shader" type="x-shader/x-fragment">
+  precision mediump float;
+  varying vec4 color;
+
+  void main(){
+    gl_FragColor = color;
+  }
+</script>
+
+
+<script type="text/javascript" src="../../../common/webgl-utils.js"></script>
+<script type="text/javascript" src="../../../common/MV.js"></script>
+<script type="text/javascript" src="../../../common/initShaders.js"></script>
+<script type="text/javascript" src="w4p1.js"></script>
+<html lang="en" dir="ltr">
+  <head>
+  <!--  <link rel="stylesheet" href="../../../css/worksheet_css.css"> -->
+    <meta charset="utf-8">
+    <title>Worksheet 4 - part1</title>
+  </head>
+
+  <body>
+    <center>
+
+
+  <table style="width: 0%;" >
+  <tbody>
+  <tr>
+  <td>
+      <canvas id="gl-Canvas" width="512" height="512">
+        Something went wrong!
+      </canvas>
+  </td>
+  <td>
+    <table style="width: 0%;background-color: #8B8B8D;" >
+    <tbody>
+    <tr>
+    <td>
+      <font color="white">Subdivision:
+        <br>
+        <button id = "buttonInc">Increase</button>
+    </td>
+    <td></td>
+    </tr>
+    <tr>
+    <td><br>
+      <button id = "Button7">Decrease</button></td>
+    <td>&nbsp;</td>
+    </tr>
+    </tbody>
+    </table>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+
+  </center>
+
+  </body>
+</html>
