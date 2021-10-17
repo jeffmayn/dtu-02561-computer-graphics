@@ -33,6 +33,8 @@ var phi = 0.0;
 
 var thetaLoc;
 
+var orbit;
+
 function createSphere(gl, program){
 
   var lightPosition = vec4(0.0, 0.0, -1.0, 0.0 );
@@ -109,9 +111,7 @@ window.onload = function init(){
 
    var program = initShaders( gl, "vertex-shader", "fragment-shader" );
    gl.useProgram( program );
-
-
-
+orbit = true;
    createSphere(gl, program);
 
 
@@ -119,6 +119,9 @@ window.onload = function init(){
 
    var increment = document.getElementById("buttonInc");
    var decrement = document.getElementById("Button7");
+    var orbit_btn = document.getElementById("Button8");
+
+
 
    increment.onclick = function(){
      console.log("incrementing");
@@ -129,16 +132,29 @@ window.onload = function init(){
 
     createSphere(gl, program);
 
+
     };
 
     decrement.onclick = function(){
       console.log("decrementing");
-        if(numTimesToSubdivide) numTimesToSubdivide--;
+        numTimesToSubdivide--;
         index = 0;
         pointsArray = [];
         normalsArray = [];
 
-      createSphere(gl, program);
+        createSphere(gl, program);
+
+    };
+
+    orbit_btn.onclick = function(){
+
+      orbit = !orbit;
+      if(orbit) render();
+
+    //  render();
+
+
+    //createSphere(gl, program);
     };
 
    render();
@@ -206,5 +222,5 @@ function render() {
   for( var i=0; i<pointsArray.length; i+=3)
           gl.drawArrays( gl.TRIANGLES, i, 3 );
 
-window.requestAnimFrame(render);
+if(orbit) window.requestAnimFrame(render);
 };
