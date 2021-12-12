@@ -2,52 +2,61 @@
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 
+
 attribute vec4 vPosition;
 attribute vec4 vNormal;
-varying vec4 fColor;
-varying vec4 fPosition;
-
-uniform vec4 ka;
-uniform vec4 kd;
-uniform vec4 ks;
-uniform vec4 Li;
-
-uniform float alpha;
-uniform float Le;
 
 uniform vec4 lightPosition;
 uniform mat4 projection;
 uniform mat4 modelView;
 
+varying vec3 n, wi, wo;
+varying vec4 fPosition;
+
 void main(){
+
+
   vec3 pos = (modelView * vPosition).xyz;
   vec3 light = (modelView * lightPosition).xyz;
-  vec3 n = normalize( (modelView*vNormal).xyz);
+  n = (modelView*vNormal).xyz;
 
-  vec3 wi = lightPosition.w == 0.0 ? normalize(light):normalize(light-pos);
-  vec3 wo = normalize(-pos);
-  vec3 wr = normalize(2.0 * dot(wi,n) * n - wi);
-  vec3 wh = normalize(wi + wo);
-
-  vec4 La = ka * Li * Le;
-  vec4 Ls = ks * Li * Le * pow(max( dot(wh, n), 0.0 ), alpha);
-  vec4 Lo = kd * Li * Le * max( dot(wi, n), 0.0 ) + La + Ls;
-
-  if( dot(wi, n) < 0.0 ) Ls = vec4(0.0, 0.0, 0.0, 1.0);
+  wi = lightPosition.w == 0.0 ? normalize(light):normalize(light-pos);
+  wo = normalize(-pos);
 
   gl_Position = projection * modelView * vPosition;
-
-  fColor = Lo;
   fPosition = vPosition;
 }
 </script>
 
 <script id="fragment-shader" type="x-shader/x-fragment">
   precision mediump float;
-  varying vec4 fColor;
-  varying vec4 fPosition;
+
+vec4 vNormal;
+
+uniform float Le;
+uniform vec4 Li;
+uniform vec4 kd;
+uniform vec4 ka;
+uniform vec4 ks;
+uniform float alpha;
+
+varying vec3 n, wi, wo;
+varying vec4 fPosition;
 
   void main(){
+
+    vec4 fColor;
+
+    vec3 wh = normalize(wi + wo);
+
+    vec4 La = ka * Li * Le;
+    vec4 Ld = kd *Li * Le * max( dot(normalize(wi), normalize(n)), 0.0 );
+    vec4 Ls = ks * Li * Le * pow(max( dot(wh,normalize(n)), 0.0 ), alpha);
+    vec4 Lo = Ld + La + Ls;
+
+    if( dot(wi, n) < 0.0 ) Ls = vec4(0.0, 0.0, 0.0, 1.0);
+
+    fColor = Lo;
     gl_FragColor = 0.5 * fPosition + 0.5 * fColor;
   }
 </script>
@@ -56,7 +65,7 @@ void main(){
 <script type="text/javascript" src="../../../common/webgl-utils.js"></script>
 <script type="text/javascript" src="../../../common/MV.js"></script>
 <script type="text/javascript" src="../../../common/initShaders.js"></script>
-<script type="text/javascript" src="w4p4.js"></script>
+<script type="text/javascript" src="w4p5.js"></script>
 <html lang="en" dir="ltr">
   <head>
      <link rel="stylesheet" href="../../../css/style.css">

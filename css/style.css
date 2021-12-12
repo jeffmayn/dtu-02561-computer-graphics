@@ -1,0 +1,30 @@
+p {
+  background-color: #bd5d38;
+  border: 10px solid #bd5d38;
+  border-radius: 5px;
+
+
+
+}
+
+table {
+  border-collapse: collapse;
+
+}
+
+.headline {
+  font-family: verdana;
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+}
+
+.menu {
+  font-family: verdana;
+  font-size: 12px;
+
+  color: black;
+  background-color: #bd5d38;
+  border: 10px solid #bd5d38;
+  border-radius: 5px;
+}

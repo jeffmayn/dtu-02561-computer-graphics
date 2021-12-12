@@ -104,7 +104,7 @@ window.onload = function init(){
 
 
    var increment = document.getElementById("buttonInc");
-   var decrement = document.getElementById("Button7");
+   var decrement = document.getElementById("buttonDec");
 
    increment.onclick = function(){
      console.log("incrementing");

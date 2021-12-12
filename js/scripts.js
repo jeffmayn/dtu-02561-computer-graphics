@@ -67,15 +67,12 @@
     $(document).ready(function(){
        $('#iframe15').attr('src', 'js/worksheet4/part4/part4.html');
     });
-    /*
     $(document).ready(function(){
-       $('#iframe16').attr('src', 'js/worksheet4/part4/part5.html');
+       $('#iframe16').attr('src', 'js/worksheet4/part5/part5.html');
     });
-    */
     $(document).ready(function(){
-       $('#iframe16').attr('src', 'js/worksheet4/part6/part6.html');
+       $('#iframe17').attr('src', 'js/worksheet4/part6/part6.html');
     });
-
     <!-- Project -->
     $(document).ready(function(){
        $('#iframe_project').attr('src', 'js/project/project.html');

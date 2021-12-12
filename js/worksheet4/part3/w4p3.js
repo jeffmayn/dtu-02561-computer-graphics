@@ -111,15 +111,15 @@ window.onload = function init(){
 
    var program = initShaders( gl, "vertex-shader", "fragment-shader" );
    gl.useProgram( program );
-orbit = true;
+   orbit = true;
    createSphere(gl, program);
 
 
 
 
    var increment = document.getElementById("buttonInc");
-   var decrement = document.getElementById("Button7");
-    var orbit_btn = document.getElementById("Button8");
+   var decrement = document.getElementById("buttonDec");
+    var orbit_btn = document.getElementById("orbit");
 
 
 

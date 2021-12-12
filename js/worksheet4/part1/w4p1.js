@@ -72,7 +72,7 @@ window.onload = function init(){
    normalMatrixLoc = gl.getUniformLocation( program, "normalMatrix" );
 
    var increment = document.getElementById("buttonInc");
-   var decrement = document.getElementById("Button7");
+   var decrement = document.getElementById("buttonDec");
 
    increment.onclick = function(){
      console.log("incrementing");
