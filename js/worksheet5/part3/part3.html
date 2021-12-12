@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <script id="vertex-shader" type="x-shader/x-vertex">
 
-attribute vec4 a_Position;
-attribute vec3 a_Normal;
-attribute vec4 a_Color;
-
-varying vec4 Color;
-
+attribute vec4 vPosition;
+attribute vec4 vNormal;
+varying vec3 N, L, E;
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
-uniform mat3 nMatrix;
+uniform vec4 lightPosition;
+uniform mat3 normalMatrix;
 
-void
-main()
+void main()
 {
-    Color = a_Color;
+    vec3 pos = (modelViewMatrix * vPosition).xyz;
+    if(lightPosition.w == 0.0) L = normalize(lightPosition.xyz);
+    else L = normalize( lightPosition.xyz - pos );
 
-    gl_Position = projectionMatrix * modelViewMatrix * a_Position;
+    E =  -normalize(pos);
+    N = normalize( normalMatrix*vNormal.xyz);
+
+    gl_Position = projectionMatrix * modelViewMatrix * vPosition;
 
 }
 </script>
@@ -26,17 +29,31 @@ main()
 
 precision mediump float;
 
-varying vec4 Color;
+uniform vec4 ambientProduct;
+uniform vec4 diffuseProduct;
+uniform vec4 specularProduct;
+uniform float shininess;
+varying vec3 N, L, E;
 
-void
-main()
+void main()
 {
-
     vec4 fColor;
-    fColor = vec4(1.0,1.0,1.0,1.0);
+
+    vec3 H = normalize( L + E );
+    vec4 ambient = ambientProduct;
+
+    float Kd = max( dot(L, N), 0.0 );
+    vec4  diffuse = Kd*diffuseProduct;
+
+    float Ks = pow( max(dot(N, H), 0.0), shininess );
+    vec4  specular = Ks * specularProduct;
+
+    if( dot(L, N) < 0.0 ) specular = vec4(0.0, 0.0, 0.0, 1.0);
+
+    fColor = ambient + diffuse +specular;
+    fColor.a = 1.0;
 
     gl_FragColor = fColor;
-
 }
 </script>
 
@@ -45,13 +62,28 @@ main()
 <script type="text/javascript" src="../../../common/initShaders.js"></script>
 <script type="text/javascript" src="w5p3.js"></script>
 
-<body>
-    <div>
-        <canvas id="webgl" width="512"" height="512", style = "display: block;
-                margin: 0 auto;">
-            Oops ... your browser doesn't support the HTML5 canvas element
-        </canvas>
-    </div>
+<!-- <link rel="stylesheet" href="part1.css"> <-->
 
+<head>
+  <title>Worksheet 5: part 3</title>
+
+</head>
+
+<body>
+  <canvas id="gl-canvas" width="512" height="512">
+    Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+  <p>Since I started with the lightsource from worksheet 4, part 3 and 4 are the same :)</p>
+  <p>You can move the object with your mouse.</p>
+    <hr>
+
+  <ul>
+      <li>Part 1:<a href="part1.html">WebGL application on your DTU Student Homepage</a></li>
+      <li>Part 2:<a href="part2.html">Create and upload an OBJ file</a></li>
+      <li><strong>Part 3:<a href="part3.html">Load the OBJ file</a></strong></li>
+      <li>Part 4:<a href="part4.html">Shade your object using Phong shading</a></li>
+      <li><a href="../Worksheet05.html">Back</a></li>
+  </ul>
 </body>
+
 </html>
