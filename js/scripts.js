@@ -73,6 +73,13 @@
     $(document).ready(function(){
        $('#iframe17').attr('src', 'js/worksheet4/part6/part6.html');
     });
+
+    <!-- Worksheet 5 -->
+    $(document).ready(function(){
+       $('#iframe18').attr('src', 'js/worksheet5/part3/part3.html');
+    });
+
+
     <!-- Project -->
     $(document).ready(function(){
        $('#iframe_project').attr('src', 'js/project/project.html');

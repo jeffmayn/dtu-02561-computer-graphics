@@ -27,12 +27,12 @@ var vc = vec4(-0.816497, -0.471405, -0.333333, 1);
 var vd = vec4(0.816497, -0.471405, -0.333333,1);
 
 var lightPosition = vec4(0.0, 0.0, 1.0, 0.0 );
-var Le = 1.2;
-var Li = vec4(1.0, 1.0, 1.0, 1.0);
-var kd = vec4(0.6, 0.6, 0.6, 1.0);
-var ka = vec4(0.1, 0.1, 0.1, 1.0);
-var ks = vec4(0.3, 0.3, 0.3, 1.0);
-var alpha = 25.0;
+var Le = 2.5;
+var Li = vec4(0.75, 0.75, 0.75, 0.75);
+var kd = vec4(0.5, 0.5, 0.5, 0.5);
+var ka = vec4(0.1, 0.1, 0.1, 0.1);
+var ks = vec4(0.25, 0.25, 0.25, 0.25);
+var alpha = 75.0;
 
 
 function createSphere(gl,numTimesToSubdivide){

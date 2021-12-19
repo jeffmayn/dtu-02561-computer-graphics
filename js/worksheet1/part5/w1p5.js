@@ -66,7 +66,8 @@ function circle(r, vertices){
 
 function render() {
   gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-  gl.drawArrays( gl.TRIANGLE_FAN, 0, points.length );
+    gl.uniform1f( thetaLoc, theta );
+  gl.drawArrays( gl.TRIANGLE_FAN, 0, points.length);
   // LINE_LOOP, LINES, LINE_STRIP, TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN
 
   // bounce circle within boundaries on y-axis
@@ -83,6 +84,6 @@ function render() {
     }
   }
 
-  gl.uniform1f( thetaLoc, theta );
+
   window.requestAnimFrame(render);
 };

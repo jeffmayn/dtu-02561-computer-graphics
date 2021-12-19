@@ -21,82 +21,95 @@
 </script>
 
 
-<script type="text/javascript" src="../../common/webgl-utils.js"></script>
-<script type="text/javascript" src="../../common/MV.js"></script>
-<script type="text/javascript" src="../../common/initShaders.js"></script>
-<script type="text/javascript" src="project.js"></script>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-  <!--  <link rel="stylesheet" href="../../css/worksheet_css.css"> -->
-    <meta charset="utf-8">
-    <title>Project</title>
+    <meta charset="utf-8" />
+    <title>HUD</title>
+     <link rel="stylesheet" href="../../css/style.css">
   </head>
 
-  <body>
-    <center>
-  <table style="width: 0%;" >
-  <tbody>
-  <tr>
-  <td>
-      <canvas id="gl-Canvas" width="512" height="512">
-        Something went wrong!
-      </canvas>
-  </td>
-  <td>
-    <table style="width: 0%;background-color: #8B8B8D;" >
+  <body onload="main()">
+
+  <table>
     <tbody>
-    <tr>
-
-    <td>
-      <font color="white">Drawing mode:
-        <br>
-        <button id="addPoints">Points</button>
-        <button id="addTriangles">Triangles</button>
-        <button id="addCircles">Circles</button>
-        <button id="addCurves">Curve</button>
-
-    </td>
-    <td></td>
-    </tr>
-    <tr>
-
-    <td>
-      <br>
-      <font color="white">Color:
-        <br>
-      <select id="colorMenu" size="4">
-      <option value="0" selected>Black</option>
-      <option value="1">Red</option>
-      <option value="2">Green</option>
-      <option value="3">Blue</option>
-      </select>
-    </td>
-    <td></td>
-    </tr>
-    <tr>
-    <td><br>
-      <font color="white">Canvas color:
-        <br>
-      <select id="clearMenu" size="4">
-        <option value="0" selected>Black</option>
-        <option value="1">Red</option>
-        <option value="2">Green</option>
-        <option value="3">Blue</option>
-      </select>
-    </td>
-    <td></td>
-    </tr>
-    <tr>
-    <td><button id="clearButton">Clear Canvas</button><br><button id="logButton">Debug</button></td>
-    <td>&nbsp;</td>
-    </tr>
+      <tr>
+        <td>
+          <canvas id="webgl" width="400" height="400"
+          style="position: absolute; z-index: 1; border:2px solid #566963;">
+          canvas error</canvas>
+          <canvas id="hud" width="400" height="400"
+          style="position: absolute; z-index: 0">canvas error</canvas>
+        </td>
+        <td>
+          <table style="position: absolute; left: 425px; z-index: 2">
+            <tbody>
+              <tr>
+                <td class="menu-project">
+                  Drawing mode:
+                    <br>
+                  <!--  <button id="addPoints">Points</button> -->
+                    <input class="myButton" type="submit"
+                    value="■" id="addPoints">
+                    <input class="myButton" type="submit"
+                    value="△" id="addTriangles"><br>
+                    <input class="myButton" type="submit"
+                    value="〇" id="addCircles">
+                    <input class="myButton" type="submit"
+                    value="~" id="addCurves">
+                </td>
+              </tr>
+              <tr>
+                <td class="menu-project">
+                Color:
+                  <br>
+                  <select id="colorMenu" size="4" class="select-style">
+                  <option value="0" selected>Black</option>
+                  <option value="1">Red</option>
+                  <option value="2">Green</option>
+                  <option value="3">Blue</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="menu-project">
+                  Canvas color:
+                    <br>
+                  <select id="clearMenu" size="4" class="select-style">
+                    <option value="0" selected>Black</option>
+                    <option value="1">Red</option>
+                    <option value="2">Green</option>
+                    <option value="3">Blue</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <br>
+                  <input class="myButton-clear-canvas" type="submit"
+                  value="Clear canvas" id="clearButton">
+                  <br><br>
+                  <input class="myButton-clear-canvas" type="submit"
+                  value="Log" id="logButton">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
     </tbody>
-    </table>
-  </td>
-  </tr>
-  </tbody>
   </table>
-  </center>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script type="text/javascript" src="../../common/webgl-utils.js">
+    </script>
+    <script type="text/javascript" src="../../common/MV.js">
+    </script>
+    <script type="text/javascript" src="../../common/initShaders.js"
+    ></script>
+    <script src="hud.js"></script>
 
   </body>
 </html>

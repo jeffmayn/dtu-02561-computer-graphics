@@ -58,6 +58,7 @@
                         <a href="mailto:s202790@student.dtu.dk">s202790@student.dtu.dk</a>
                     </div>
                     <p class="lead mb-5">Here you will find all lab exercises.
+                      <br>OBS! WS 1-8 is implemented and working, but if en error occurs, try refreshing or close/open the exercise again.
                       <br><br>
 
                       <button class="tablink" onclick="openPage('W1', this, '#F9F9F9')" id="defaultOpen">W1</button>
@@ -72,112 +73,184 @@
                       <button class="tablink" onclick="openPage('W10', this, '#F9F9F9')">W10</button>
 
                       <div id="W1" class="tabcontent">
-                        <h3>Worksheet 1</h3>
+                        <h3>Worksheet 1: Getting started with WebGL</h3>
                         <hr>
-                        <p>Part 1:</p>
-                        <iframe id="iframe" name="myIframe" frameborder="0" width="550" height="550"></iframe>
+                        <p>Part 1: Setup a basic WebGL application:
+                        <a href="js/worksheet1/part1/part1.html" target="_blank">Open page in new window</a></p>
 
+                        <p>Part 2: Shaders and buffers:
+                        <a href="js/worksheet1/part2/part2.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 2:</p>
-                        <iframe id="iframe2" name="myIframe" frameborder="0" width="550" height="550"></iframe>
+                        <p>Part 3: Triangles:
+                        <a href="js/worksheet1/part3/part3.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 3:</p>
-                        <iframe id="iframe3" name="myIframe" frameborder="0" width="550" height="550"></iframe>
+                        <p>Part 4: A Rotating square:
+                        <a href="js/worksheet1/part4/part4.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 4:</p>
-                        <iframe id="iframe4" name="myIframe" frameborder="0" width="550" height="575"></iframe>
+                        <p>Part 5: A fan of triangles:
+                        <a href="js/worksheet1/part5/part5.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 5:</p>
-                        <iframe id="iframe5" name="myIframe" frameborder="0" width="550" height="550"></iframe>
                       </div>
 
                       <div id="W2" class="tabcontent">
-                        <h3>Worksheet 2</h3>
+                        <h3>Worksheet 2: Input devices and interaction</h3>
                         <hr>
-                        <p>Part 1: (Click the mouse in the canvas area to place points)</p>
-                        <iframe id="iframe6" name="myIframe" frameborder="0" width="550" height="550"></iframe>
 
+                        <p>Part 1:
+                        <a href="js/worksheet2/part1/part1.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 2: (Click the mouse in the canvas area to place points)</p>
-                        <iframe id="iframe7" name="myIframe" frameborder="0" width="725" height="550"></iframe>
+                        <p>Part 2:
+                        <a href="js/worksheet2/part2/part2.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 3: (Click the mouse in the canvas area to draw stuff)</p>
-                        <iframe id="iframe8" name="myIframe" frameborder="0" width="775" height="550"></iframe>
+                        <p>Part 3:
+                        <a href="js/worksheet2/part3/part3.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 4: (Click the mouse in the canvas area to draw stuff)</p>
-                        <iframe id="iframe9" name="myIframe" frameborder="0" width="775" height="575"></iframe>
+                        <p>Part 4:
+                        <a href="js/worksheet2/part4/part4.html" target="_blank">Open page in new window</a></p>
 
                       </div>
 
                       <div id="W3" class="tabcontent">
-                        <h3>Worksheet 3</h3>
+                        <h3>Worksheet 3: Projections (virtual camera) and transformations</h3>
                         <hr>
-                        <p>Part 1:</p>
-                        <iframe id="iframe10" name="myIframe" frameborder="0" width="550" height="550"></iframe>
 
+                        <p>Part 1: Draw a wireframe unit cube in isometric view:
+                        <a href="js/worksheet3/part1/part1.html" target="_blank">Open page in new window</a></p>
 
-                        <p>Part 2:</p>
-                        <iframe id="iframe11" name="myIframe" frameborder="0" width="725" height="550"></iframe>
-                        <p>Part 3: Reflection.</p>
-                        <br>
-                        bla bla
+                        <p>Part 2: Draw the unit cube in different classical perspective views:
+                        <a href="js/worksheet3/part2/part2.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 3: Reflect on the theory of affine transformations and viewing transformations:<br>
+                        <ul>
+                          <li>Coffee</li>
+                          <li>Formula for CTM for each cube:</li>
+                            <ul>
+                              <li>Wireframe unit cube in isometric view:</li>
+                              <ul>
+                                <li>CTM = viewMatrix * modelViewMatrix;</li>
+                              </ul>
+                              <li>Three classical perspective views:</li>
+                                <ul>
+                                  <li>CTM = mvMatrix * pMatrix;</li><br>
+                                  <li>loc = translate(1.5, 0.0, 0.0)<br>CTM = mvMatrix * pMatrix;</li><br>
+                                  <li>loc = translate(-1.5, 0.0, 0.0)<br>CTM = mvMatrix * pMatrix * rotate(35);</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                          <br>
+
                       </div>
 
                       <div id="W4" class="tabcontent">
-                        <h3>Worksheet 4</h3>
+                        <h3>Worksheet 4: Lighting and (forward) shading</h3>
                         <hr>
-                        <p>Part 1:</p>
-                        <iframe id="iframe12" name="myIframe" frameborder="0" width="800" height="600"></iframe>
-                        <br>
-                        <p>Part 2:</p>
-                        <iframe id="iframe13" name="myIframe" frameborder="0" width="800" height="600"></iframe>
-                        <br>
-                        <p>Part 3:</p>
-                        <iframe id="iframe14" name="myIframe" frameborder="0" width="800" height="600"></iframe>
-                        <br>
-                        <p>Part 4:</p>
-                        <iframe id="iframe15" name="myIframe" frameborder="0" width="800" height="600"></iframe>
-                        <br>
-                        <p>Part 5:</p>
-                        <iframe id="iframe16" name="myIframe" frameborder="0" width="800" height="600"></iframe>
-                        <br>
-                        <p>Part 6:</p>
-                        <iframe id="iframe17" name="myIframe" frameborder="0" width="725" height="550"></iframe>
+                        <p>Part 1: Draw a sphere in perspective view
+                        <a href="js/worksheet4/part1/part1.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 2: Use depth buffer and back face culling to remove hidden surfaces
+                        <a href="js/worksheet4/part2/part2.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 3: Use Guaraud shading
+                        <a href="js/worksheet4/part3/part3.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 4: Implement full Phong reflection model in the vertex shader and create sliders
+                        <a href="js/worksheet4/part4/part4.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 5: Use phong shading by moving your implementation of Phong model to the fragments shader
+                        <a href="js/worksheet4/part5/part5.html" target="_blank">Open page in new window</a></p>
 
 
-
+                        <p>Part 6: Answer the following questions:<br>
+                        <ul>
+                          <li>(a) The Phong shading is applied to the fragment shader because the lighting model is required to be applied to each fragment.
+                                  Phong lighting is applied to the vertex shader and works on the vertices.
+                          </li>
+                          <li>(b) Flat shading is the simplest model. If the three vectors are constant, the shading only needs to calculate once for each polygon and all points are assigned the same shade. simple, but less smooth.<br>
+                            Phong lighting, also known as Gourad shading, is more complex and gives better result but also needs more calculations.<br>
+                            Phong shading interpolates normals of vertices to calcualte the light. This is the most complex of the three.
+                          </li>
+                          <li>(c) Directional light is a source of light whose rays are parallel. The source is considered to be an infinite distance. Its comparable with the sun. <br>Point light emits light in all direction from one single point. Its comparable to a lightbulb, lamps etc. </li>
+                          <li>(d) I am not sure </li>
+                          <li>(e) There will come no light reflection of an object.</li>
+                          <li>(f) Light reflected back will be in a more narrow region.</li>
+                          <li>(g) In world coordinate space</li>
+                        </ul>
 
 
                       </div>
 
                       <div id="W5" class="tabcontent">
-                        <h3>Week5</h3>
-                        <p>Home is where the heart is..</p>
+                        <h3>Worksheet 5: Rendering a triangle mesh</h3>
+                        <hr>
+                        <p>Part 1: Create DTU student homepage:
+                        <a href="https://www.student.dtu.dk/~s202790/" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 2: Create a nice 3D object (using blender)
+                        <a href="/" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 3: Load and display 3D model
+                        <a href="js/worksheet5/part3/part3.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 4: Set up a light source
+                        <a href="js/worksheet5/part4/part4.html" target="_blank">Open page in new window</a></p>
+
+                        <br>
                       </div>
 
                       <div id="W6" class="tabcontent">
-                        <h3>Week6</h3>
-                        <p>Some news this fine day!</p>
+                        <h3>Worksheet 6: Texxture mapping</h3>
+                        <hr>
+                        <p>Part 1: Create a rectangle with vertices
+                        <a href="js/worksheet6/part1/part1.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 2: Create buttons to switch between different texture wrapping modes
+                        <a href="js/worksheet6/part2/part2.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 3: Map earth texture onto the sphere from W4 Part 3
+                        <a href="js/worksheet6/part3/part3.html" target="_blank">Open page in new window</a></p>
+
                       </div>
 
                       <div id="W7" class="tabcontent">
-                        <h3>Week7</h3>
-                        <p>Get in touch, or swing by for a cup of coffee.</p>
+                        <h3>Worksheet 7: Environment mapping and normal mapping</h3>
+                        <p>Part 1: Cube map
+                        <a href="js/worksheet7/part1/part1.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 2: Environment
+                        <a href="js/worksheet7/part2/part2.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 3: Reflection
+                        <a href="js/worksheet7/part3/part3.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 4: Bump mapping
+                        <a href="js/worksheet7/part4/part4.html" target="_blank">Open page in new window</a></p>
+
                       </div>
 
                       <div id="W8" class="tabcontent">
-                        <h3>Week8</h3>
-                        <p>Who we are and what we do.</p>
+                        <h3>Worksheet 8: Projection shadows and render pipeline</h3>
+                        <p>Part 1: Scene
+                        <a href="js/worksheet8/part1/part1.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 2: Projection shadows
+                        <a href="js/worksheet8/part2/part2.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 3: Shadow polygon culling using the z-buffer
+                        <a href="js/worksheet8/part3/part3.html" target="_blank">Open page in new window</a></p>
+
+                        <p>Part 4: Ambient light in shadows using transparency
+                        <a href="js/worksheet8/part4/part4.html" target="_blank">Open page in new window</a></p>
+
                       </div>
 
                       <div id="W9" class="tabcontent">
-                        <h3>Week9</h3>
-                        <p>Home is where the heart is..</p>
+                        <h3>Worksheet 9: </h3>
+                        <p>in progress...</p>
                       </div>
 
                       <div id="W10" class="tabcontent">
-                        <h3>Week10</h3>
-                        <p>Some news this fine day!</p>
+                        <h3>Worksheet 10:</h3>
+                        <p>in progress...</p>
                       </div>
 
                 </div>
@@ -193,6 +266,8 @@
 </h3>
                             <div class="subheading mb-3">Rational Quadratic Bezier Curves</div>
                             <p>Extension of the 2D drawing program with inclusion of rational quadratic Bezier curves.</p>
+                            <p>Download the project report (PDF):
+                            <a href="report/02561___Graphics__report.pdf" target="_blank">Open page in new window</a></p>
                             <iframe id="iframe_project" name="myIframe" frameborder="0" width="775" height="575"></iframe>
                         </div>
                     <!--    <div class="flex-shrink-0"><span class="text-primary">November 2020 - Present</span></div> !-->
